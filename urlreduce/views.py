@@ -45,7 +45,7 @@ def redirect_url_view(request, shortened_url):
     try:
         shortener = Shortener.objects.get(short_url=shortened_url)
         shortener.times_followed += 1
-        shortener.save
+        shortener.save()
 
         return HttpResponseRedirect(shortener.long_url)
 
